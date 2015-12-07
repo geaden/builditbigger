@@ -1,4 +1,6 @@
-Project 4 TODO
+# Project 4 
+
+## TODO
 
 - [x] Initial Project Setup
 - [x] Add Java Library
