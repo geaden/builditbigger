@@ -1,12 +1,13 @@
 package com.geaden.android.builditbigger.app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
+import com.geaden.android.jokeactivity.JokeActivity;
 import com.geaden.jokes.JokeTeller;
 
 
@@ -42,13 +43,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
-     * Tells a joke.
+     * Launches activity with a joke content.
      *
      * @param view the view method invoked from.
      */
     public void tellJoke(View view) {
         JokeTeller jokeTeller = JokeTeller.getInstance();
         String aJoke = jokeTeller.getJoke();
-        Toast.makeText(this, aJoke, Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, JokeActivity.class);
+        Bundle extras = new Bundle();
+        extras.putString(JokeActivity.JOKE_KEY, aJoke);
+        intent.putExtras(extras);
+        startActivity(intent);
     }
 }
