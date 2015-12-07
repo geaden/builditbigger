@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.geaden.jokes.JokeTeller;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,7 +41,14 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void tellJoke(View view){
-        Toast.makeText(this, "derp", Toast.LENGTH_SHORT).show();
+    /**
+     * Tells a joke.
+     *
+     * @param view the view method invoked from.
+     */
+    public void tellJoke(View view) {
+        JokeTeller jokeTeller = JokeTeller.getInstance();
+        String aJoke = jokeTeller.getJoke();
+        Toast.makeText(this, aJoke, Toast.LENGTH_SHORT).show();
     }
 }
