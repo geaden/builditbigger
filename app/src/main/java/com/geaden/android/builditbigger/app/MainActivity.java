@@ -1,14 +1,10 @@
 package com.geaden.android.builditbigger.app;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import com.geaden.android.jokeactivity.JokeActivity;
-import com.geaden.jokes.JokeTeller;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -48,12 +44,6 @@ public class MainActivity extends AppCompatActivity {
      * @param view the view method invoked from.
      */
     public void tellJoke(View view) {
-        JokeTeller jokeTeller = JokeTeller.getInstance();
-        String aJoke = jokeTeller.getJoke();
-        Intent intent = new Intent(this, JokeActivity.class);
-        Bundle extras = new Bundle();
-        extras.putString(JokeActivity.JOKE_KEY, aJoke);
-        intent.putExtras(extras);
-        startActivity(intent);
+        new JokeTellerAsyncTask().execute(this);
     }
 }

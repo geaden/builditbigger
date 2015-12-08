@@ -1,0 +1,21 @@
+.joke-nav .mdl-navigation__link {
+  display: flex !important;
+  flex-direction: row;
+  align-items: center;
+}
+
+.joke-holder .mdl-card__supporting-text {
+  height: auto;
+  min-height: 240px;
+}
+
+.joke-holder .mdl-card__supporting-text h4 {
+  font-weight: 300;
+  color: #000000;
+}
+
+.joke-holder .mdl-card__title {
+  background: url('../img/background.jpg') center / cover;
+  color: #FFFFFF;
+  height: 180px;
+}

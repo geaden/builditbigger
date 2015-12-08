@@ -1,15 +1,15 @@
 package com.geaden.jokes.backend;
 
-/** POJO representing a Joke */
+/** POJO representing a Joke*/
 public class JokeBean {
 
-    private String joke;
+    private String data;
 
-    public String getJoke() {
-        return joke;
+    public String getData() {
+        return data;
     }
 
-    public void setJoke(String joke) {
-        this.joke = joke;
+    public void setData(String data) {
+        this.data = data;
     }
 }
