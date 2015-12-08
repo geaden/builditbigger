@@ -20,7 +20,7 @@ import java.io.IOException;
  *
  * @author Gennady Denisov
  */
-class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
+public class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
     private static JokesApi jokeApiService = null;
     private Context context;
 

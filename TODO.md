@@ -6,7 +6,7 @@
 - [x] Add Java Library
 - [x] Add Android Library
 - [x] Add GCE Module
-- [ ] Add Functional Tests
+- [x] Add Functional Tests
 - [ ] Add a Paid Flavor
 - [ ] Add Interstitial Add
 - [ ] Add Loading Indicator
