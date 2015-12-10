@@ -11,6 +11,18 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    productFlavors {
+        paid {
+            applicationId = "com.geaden.android.builditbigger.app.paid"
+            versionName "1.0-paid"
+        }
+        free {
+            applicationId = "com.geaden.android.builditbigger.app.free"
+            versionName "1.0-free"
+        }
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -23,7 +35,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile project(':jokes')
     compile project(':jokeactivity')
-    // Added for AdMob
     compile 'com.android.support:appcompat-v7:23.1.1'
-    compile 'com.google.android.gms:play-services-ads:8.3.0'
+    // Added for AdMob for
+    freeCompile 'com.google.android.gms:play-services-ads:8.3.0'
 }
