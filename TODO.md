@@ -7,7 +7,7 @@
 - [x] Add Android Library
 - [x] Add GCE Module
 - [x] Add Functional Tests
-- [ ] Add a Paid Flavor
+- [x] Add a Paid Flavor
 - [ ] Add Interstitial Add
 - [ ] Add Loading Indicator
 - [ ] Configure Test Task
