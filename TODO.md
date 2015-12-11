@@ -10,4 +10,4 @@
 - [x] Add a Paid Flavor
 - [x] Add Interstitial Add
 - [x] Add Loading Indicator
-- [ ] Configure Test Task
+- [x] Configure Test Task

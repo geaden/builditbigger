@@ -5,7 +5,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:1.2.3'
+        classpath 'com.android.tools.build:gradle:2.0.0-alpha2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,3 +17,17 @@ allprojects {
         jcenter()
     }
 }
+
+task runBackend(dependsOn: [":backend:appengineRun"]) {
+    project(":backend").afterEvaluate { backend ->
+        backend.extensions.appengine.daemon = true
+    }
+}
+
+task testAll(dependsOn: [runBackend, ":app:connectedCheck", ":app:test", ":jokes:test"]) {
+    description 'Runs backend, then all tests and finally shuts down backend.'
+
+}
+
+task(":app:connectedCheck").mustRunAfter runBackend
+testAll.finalizedBy ":backend:appengineStop"
