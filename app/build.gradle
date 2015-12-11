@@ -36,6 +36,6 @@ dependencies {
     compile project(':jokes')
     compile project(':jokeactivity')
     compile 'com.android.support:appcompat-v7:23.1.1'
-    // Added for AdMob for
+    // Added for AdMob for free app version
     freeCompile 'com.google.android.gms:play-services-ads:8.3.0'
 }
