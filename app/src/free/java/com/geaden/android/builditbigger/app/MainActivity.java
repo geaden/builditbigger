@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
@@ -50,6 +51,9 @@ public class MainActivity extends AppCompatActivity {
      * @param view the view method invoked from.
      */
     public void tellJoke(View view) {
+        // Show progress bar on Ad loading
+        ProgressBar mProgressBar = (ProgressBar) findViewById(R.id.loader);
+        mProgressBar.setVisibility(View.VISIBLE);
         mInterstitial = new InterstitialAd(this);
         mInterstitial.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         mInterstitial.setAdListener(new AdListener() {

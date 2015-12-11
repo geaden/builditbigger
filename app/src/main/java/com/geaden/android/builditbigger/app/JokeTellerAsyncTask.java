@@ -1,9 +1,12 @@
 package com.geaden.android.builditbigger.app;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.geaden.android.jokeactivity.JokeActivity;
 import com.geaden.jokes.JokeTeller;
@@ -23,9 +26,22 @@ import java.io.IOException;
 public class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
     private static JokesApi jokeApiService = null;
     private Context context;
+    private ProgressBar mProgressBar;
 
     @Override
     protected String doInBackground(Context... params) {
+        context = params[0];
+        if (context instanceof Activity) {
+            Activity activity = (Activity) context;
+            mProgressBar = (ProgressBar) activity.findViewById(R.id.loader);
+            activity.runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    if (mProgressBar.getVisibility() != View.VISIBLE)
+                        mProgressBar.setVisibility(View.VISIBLE);
+                }
+            });
+        }
         if (jokeApiService == null) {
             JokesApi.Builder builder = new JokesApi.Builder(AndroidHttp.newCompatibleTransport(),
                     new AndroidJsonFactory(), null)
@@ -42,7 +58,6 @@ public class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
             // end options for devappserver
             jokeApiService = builder.build();
         }
-        context = params[0];
         JokeTeller jokeTeller = JokeTeller.getInstance(jokeApiService);
         return jokeTeller.getJoke();
     }
@@ -50,6 +65,7 @@ public class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPostExecute(String aJoke) {
         super.onPostExecute(aJoke);
+        mProgressBar.setVisibility(View.INVISIBLE);
         // Launch JokeActivity
         Intent intent = new Intent(context, JokeActivity.class);
         Bundle extras = new Bundle();

@@ -8,6 +8,6 @@
 - [x] Add GCE Module
 - [x] Add Functional Tests
 - [x] Add a Paid Flavor
-- [ ] Add Interstitial Add
-- [ ] Add Loading Indicator
+- [x] Add Interstitial Add
+- [x] Add Loading Indicator
 - [ ] Configure Test Task
