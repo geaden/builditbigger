@@ -24,10 +24,11 @@ task runBackend(dependsOn: [":backend:appengineRun"]) {
     }
 }
 
-task testAll(dependsOn: [runBackend, ":app:connectedCheck", ":app:test", ":jokes:test"]) {
+task testAll(dependsOn: [":app:clean", runBackend, ":app:connectedCheck", ":app:test", ":jokes:test"]) {
     description 'Runs backend, then all tests and finally shuts down backend.'
 
 }
 
+runBackend.mustRunAfter(":app:clean")
 task(":app:connectedCheck").mustRunAfter runBackend
 testAll.finalizedBy ":backend:appengineStop"
