@@ -65,7 +65,9 @@ public class JokeTellerAsyncTask extends AsyncTask<Context, Void, String> {
     @Override
     protected void onPostExecute(String aJoke) {
         super.onPostExecute(aJoke);
-        mProgressBar.setVisibility(View.INVISIBLE);
+        if (mProgressBar != null && mProgressBar.getVisibility() == View.VISIBLE) {
+            mProgressBar.setVisibility(View.INVISIBLE);
+        }
         // Launch JokeActivity
         Intent intent = new Intent(context, JokeActivity.class);
         Bundle extras = new Bundle();
